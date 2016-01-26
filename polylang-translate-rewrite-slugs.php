@@ -279,7 +279,7 @@ class Polylang_Translate_Rewrite_Slugs {
 				return $term;
 
 			// Get the term language.
-			$term_language = $polylang->model->get_term_language($term->term_id);
+			$term_language = PLL()->model->term->get_language($term->term_id);
 			if ($term_language) {
 				$lang = $term_language->slug;
 			} else {
