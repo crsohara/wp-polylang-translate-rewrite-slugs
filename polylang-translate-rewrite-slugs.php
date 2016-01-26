@@ -12,7 +12,7 @@ License: GPLv2 or later
 /*  Copyright 2014  Kristoffer Laurin-Racicot  (email : kristoffer.lr@gmail.com)
 
 	This program is free software; you can redistribute it and/or modify
-	it under the terms of the GNU General Public License, version 2, as 
+	it under the terms of the GNU General Public License, version 2, as
 	published by the Free Software Foundation.
 
 	This program is distributed in the hope that it will be useful,
@@ -178,7 +178,7 @@ class Polylang_Translate_Rewrite_Slugs {
 		global $polylang;
 
 		// We always check for the post language. Otherwise, the current language.
-		$post_language = $polylang->model->get_post_language($post->ID);
+		$post_language = PLL()->model->term->get_language($post->ID);
 		if ($post_language) {
 			$lang = $post_language->slug;
 		} else {
