@@ -185,8 +185,9 @@ class Polylang_Translate_Rewrite_Slugs {
 			$lang = pll_default_language();
 		}
 
+		$draft_or_pending = isset($post->post_status) && in_array($post->post_status, array( 'draft', 'pending', 'auto-draft' ));
 		// Check if the post type is handle.
-		if (isset($this->post_types[$post->post_type])) {
+		if (( !$draft_or_pending || $sample ) && isset($this->post_types[$post->post_type])) {
 			// Build URL. Lang prefix is already handle.
 			return trim(home_url( '/' . $this->post_types[$post->post_type]->translated_slugs[$lang]->rewrite['slug'] . '/' . ($leavename ? "%$post->post_type%" : get_page_uri( $post->ID ) ) ), '/').'/';
 		}
