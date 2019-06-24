@@ -226,6 +226,11 @@ class Polylang_Translate_Rewrite_Slugs {
 		// function handle this.
 		if (isset($this->post_types[$post_type])) {
 			$translated_slugs = $this->post_types[$post_type]->translated_slugs;
+
+			if ( ! isset($translated_slugs[$lang] )) {
+				return false;
+			}
+
 			$translated_slug = $translated_slugs[$lang];
 
 			if ( ! $translated_slug->has_archive )
